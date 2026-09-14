@@ -1,0 +1,22 @@
+# 依赖
+node_modules/
+
+# 小程序 npm 构建产物
+miniprogram/miniprogram_npm/
+
+# 云函数公共层同步产物（由 npm run sync:common 生成）
+cloudfunctions/*/lib/
+
+# 云函数本地依赖
+cloudfunctions/*/node_modules/
+
+# 编辑器 / 系统
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# 日志与临时文件
+*.log
+*.tmp
+project.private.config.json

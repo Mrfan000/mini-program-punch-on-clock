@@ -1,0 +1,12 @@
+{
+  "name": "punch-on-clock",
+  "version": "1.0.0",
+  "private": true,
+  "description": "通用打卡小程序（个人 + 团队）",
+  "scripts": {
+    "sync:common": "node scripts/sync-common.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

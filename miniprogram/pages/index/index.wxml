@@ -1,0 +1,67 @@
+<view class="page">
+  <!-- 顶部概览 -->
+  <view class="hero">
+    <view class="hero__date">{{ today }} {{ weekday }}</view>
+    <view class="hero__title">{{ greeting }}</view>
+
+    <view class="hero__summary">
+      <view class="hero__item">
+        <text class="hero__num">{{ todayPending }}</text>
+        <text class="hero__label">今日待打卡</text>
+      </view>
+      <view class="hero__divider"></view>
+      <view class="hero__item">
+        <text class="hero__num">{{ stats.currentStreak }}</text>
+        <text class="hero__label">连续天数</text>
+      </view>
+      <view class="hero__divider"></view>
+      <view class="hero__item">
+        <text class="hero__num">{{ stats.totalCount }}</text>
+        <text class="hero__label">累计打卡</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 今日任务 -->
+  <view class="section">
+    <view class="section__head">
+      <text class="section__title">今日任务</text>
+      <text class="section__more" bindtap="onCreateTask">+ 新建</text>
+    </view>
+
+    <view class="empty" wx:if="{{!loading && tasks.length === 0}}">
+      <text class="empty__text">还没有打卡任务</text>
+      <text class="empty__desc">任务创建与打卡将在 M2 阶段开放</text>
+    </view>
+
+    <view class="task-card" wx:for="{{tasks}}" wx:key="_id" bindtap="onOpenTask" data-id="{{item._id}}">
+      <view class="task-card__title">{{ item.title }}</view>
+      <view class="task-card__desc">{{ item.desc }}</view>
+    </view>
+  </view>
+
+  <!-- 开发自检：用于验证云开发链路是否打通 -->
+  <view class="card dev">
+    <view class="card__title">开发自检</view>
+    <view class="dev__row">
+      <text class="dev__label">云环境</text>
+      <text class="dev__value">{{ envId }}</text>
+    </view>
+    <view class="dev__row">
+      <text class="dev__label">openid</text>
+      <text class="dev__value">{{ user ? user._openid : '登录中…' }}</text>
+    </view>
+    <view class="dev__row">
+      <text class="dev__label">昵称</text>
+      <text class="dev__value">{{ (user && user.nickName) || '未设置' }}</text>
+    </view>
+    <view class="dev__row">
+      <text class="dev__label">用户状态</text>
+      <text class="dev__value">{{ user ? user.status : '-' }}</text>
+    </view>
+    <view class="dev__row">
+      <text class="dev__label">版本</text>
+      <text class="dev__value">v{{ version }}</text>
+    </view>
+  </view>
+</view>

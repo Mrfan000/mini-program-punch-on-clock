@@ -1,0 +1,10 @@
+{
+  "name": "user",
+  "version": "1.0.0",
+  "private": true,
+  "description": "用户域云函数：登录、资料读写、消息",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

@@ -1,0 +1,48 @@
+<view class="page">
+  <!-- 资料卡：使用微信「头像昵称填写能力」 -->
+  <view class="profile">
+    <button class="avatar-btn" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+      <image wx:if="{{form.avatarUrl}}" class="avatar" src="{{form.avatarUrl}}" mode="aspectFill" />
+      <view wx:else class="avatar avatar--placeholder">{{ avatarText }}</view>
+    </button>
+
+    <view class="profile__body">
+      <input
+        class="profile__nickname"
+        type="nickname"
+        placeholder="点击填写昵称"
+        placeholder-class="profile__nickname-ph"
+        value="{{form.nickName}}"
+        bindinput="onNickNameInput"
+        bindblur="onNickNameInput"
+      />
+      <view class="profile__id">ID: {{ user ? user._openid : '登录中…' }}</view>
+    </view>
+  </view>
+
+  <!-- 数据概览：M2 接入真实统计 -->
+  <view class="card">
+    <view class="card__title">我的数据</view>
+    <view class="stat-row">
+      <view class="stat">
+        <text class="stat__num">{{ stats.totalCount }}</text>
+        <text class="stat__label">累计打卡</text>
+      </view>
+      <view class="stat">
+        <text class="stat__num">{{ stats.currentStreak }}</text>
+        <text class="stat__label">当前连续</text>
+      </view>
+      <view class="stat">
+        <text class="stat__num">{{ stats.maxStreak }}</text>
+        <text class="stat__label">最长连续</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="action">
+    <t-button theme="primary" size="large" block loading="{{saving}}" bind:tap="onSave">
+      保存资料
+    </t-button>
+    <view class="action__tip text-secondary">头像与昵称仅用于在小程序内展示</view>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+{
+  "name": "common",
+  "version": "1.0.0",
+  "private": true,
+  "description": "打卡小程序云函数公共层：统一响应、错误码、鉴权、日期与校验工具",
+  "main": "index.js"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "punch-on-clock-miniprogram",
+  "version": "1.0.0",
+  "private": true,
+  "description": "打卡小程序端",
+  "dependencies": {
+    "tdesign-miniprogram": "^1.9.0"
+  },
+  "devDependencies": {
+    "miniprogram-api-typings": "^4.0.0"
+  }
+}
